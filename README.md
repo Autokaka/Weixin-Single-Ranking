@@ -1,1 +1,1 @@
-Weixin applet periodical learning rsults and achievements
+Weixin applet periodical learning results and achievements
