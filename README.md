@@ -1,1 +1,1 @@
-微信小程序
+Weixin applet periodical learning rsults and achievements
