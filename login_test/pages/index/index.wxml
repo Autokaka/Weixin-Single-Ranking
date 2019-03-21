@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button><!--hasuserInfo和getUserInfo为内部方法，分别用于判断和获取用户的信息，并存入userInfo（类似一个struct的东西，里面有用户的基本信息）-->
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image><!--登录以后按钮会获取userInfo内部的用户头像，并将控件背景设定为用户头像，绑定点击事件是log页面，用于查看启动日志-->
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block><!--用户头像下方的的昵称，通过userInfo获取用户的昵称并显示出来-->
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text><!--详见对应js，motto设置为“Hello World”-->
+  </view>
+</view>
