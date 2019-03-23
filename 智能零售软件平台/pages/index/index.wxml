@@ -1,12 +1,11 @@
-<!--pages/shop.wxml-->
-<view>
-  <!--top-->
-  <view>
-    <image src='/images/icon/sao.png' class='sao_img' bindtap='scanImg'> </image>
-  </view>
-  <!--导航-->
-  <view>
+
+<view class="box">
+  <canvas canvas-id='qrcode' style='margin:auto;width:660rpx; height:660rpx; background:#AAA;'>
     
+  </canvas>
+  <view>
+  
+    <input bindinput="bindKeyInput" class='url-input' type='text' confirm-type="done" placeholder='内容：'></input>
+    <button bindtap='createQRcode' type='primary' class='create-qrcode-btn'>生成二维码</button>
   </view>
 </view>
-

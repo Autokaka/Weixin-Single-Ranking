@@ -11,7 +11,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {//点击圆形按钮登录以后，跳转到log页，查看启动日志
     wx.navigateTo({
-      url: '../modPI/modPI'
+      url: '../editProfile/editProfile'
     })
   },
   onLoad: function () {

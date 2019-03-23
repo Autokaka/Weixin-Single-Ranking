@@ -1,76 +1,42 @@
-// pages/index.js
+let QRCode = require("../../utils/qrCode.js").default;
+
+//index.js
+//获取应用实例
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    qrtext: ''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  /**
-   * 扫一扫功能
-   */
-  scanImg: function () {
-    wx.scanCode({
-      success: (res) => {
-        console.log(res)
-      }
+  //输入框内容改变时触发
+  bindKeyInput: function (e) {
+    this.setData({
+      qrtext: e.detail.value
     })
+  },
+  //单击生成二维码触发
+  createQRcode: function () {
+    this.QR.clear();
+    this.QR.makeCode(this.data.qrtext);
+  },
+  onLoad: function () {
+    // console.log(QRCode);
+    // 获取手机信息
+    let sysinfo = wx.getSystemInfoSync();
+    console.log(sysinfo)
+    let qrcode = new QRCode('qrcode', {
+      text: '',
+      //获取手机屏幕的宽和长  进行比例换算
+      width: sysinfo.windowWidth * 660 / 750,
+      height: sysinfo.windowWidth * 660 / 750,
+      //二维码底色尽量为白色， 图案为深色
+      colorDark: '#000000',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.correctLevel.H
+    });
+    //将一个局部变量共享
+    this.QR = qrcode;
+
+
   }
 })

@@ -1,14 +1,15 @@
 <!--pages/me/me.wxml-->
 <view>
   <!--头像-->
-  <view>
-    <view class='head'>
-      <image src="/images/test/test.png" class='head_photo'></image>
-    </view> 
-    <view  class='head'>
-      <text class='name'>昵称:</text>
-    </view>
+  <view class="head">
+    <open-data class="head_photo" type="userAvatarUrl"></open-data>
+    <open-data class="headd_name" type="userNickName"></open-data>
+      <button class="head_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        <image class="head_btn_img" src='../../images/icon/wechat.png'></image>
+        <view class='head_btn_text'>微信授权登录</view>
+      </button>
   </view>
+
   <!--中部按钮-->
   <view class='line_cu'></view>
   <view class='item' bindtap='editProfile'>

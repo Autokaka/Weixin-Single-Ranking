@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
+  <view class="userinfo" bindtap='bindViewTap'>
     <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
     <open-data class="userinfo-nickname" type="userNickName"></open-data>
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信授权登录</button><!--hasUserInfo和getUserInfo为内部方法，分别用于判断和获取用户的信息，并存入userInfo（类似一个struct的东西，里面有用户的基本信息）-->
