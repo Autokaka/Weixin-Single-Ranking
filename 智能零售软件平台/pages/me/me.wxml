@@ -1,0 +1,41 @@
+<!--pages/me/me.wxml-->
+<view>
+  <!--头像-->
+  <view>
+    <view class='head'>
+      <image src="/images/test/test.png" class='head_photo'></image>
+    </view> 
+    <view  class='head'>
+      <text class='name'>昵称:</text>
+    </view>
+  </view>
+  <!--中部按钮-->
+  <view class='line_cu'></view>
+  <view class='item' bindtap='editProfile'>
+    <image src='/images/icon/change.png' class='img'></image>
+    <view class='text'>修改个人信息</view>
+    <view class='detail'><text>></text></view>
+  </view>
+  <view class='line'></view>
+  <view class='item'bindtap='history'>
+    <image src='/images/icon/history.png' class='img'></image>
+    <view class='text'>历史订单</view>
+    <view class='detail'><text>></text></view>
+  </view>
+  <view class='line'></view>
+  <view class='item'>
+    <image src='/images/icon/setting.png' class='img'></image>
+    <view class='text'>设置</view>
+    <view class='detail'><text>></text></view>
+  </view>
+  <view class='line'></view>
+  <view class='item'>
+    <image src='/images/icon/tel.png' class='img'></image>
+    <view class='text'>客服</view>
+    <view class='detail'><text>></text></view>
+  </view>
+  <view class='line_cu'></view>
+  <!--底部-->
+  <view>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/shop.wxml-->
+<view>
+  <!--top-->
+  <view>
+    <image src='/images/icon/sao.png' class='sao_img' bindtap='scanImg'> </image>
+  </view>
+  <!--导航-->
+  <view>
+    
+  </view>
+</view>
+

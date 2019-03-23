@@ -1,0 +1,33 @@
+<!--pages/modPI/modPI.wxml-->
+<view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
+  <view class="modals-cancel" bindtap="hideOptions"></view>
+  <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
+    <button class='btn' open-type='openSetting'>
+      <image class='btnImg' src='../images/editprofile/camera.png'></image>
+      <view>拍照上传</view>
+    </button>
+    <button class='btn' open-type='openSetting'>
+      <image class='btnImg' src='../images/editprofile/picture.png'></image>
+      <view>本地相册</view>
+    </button>
+  </view>
+</view>
+
+<view class="portrait">
+  <image bindtap="showOptions" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+</view>
+
+<view class="displayinfo">
+  <label class="name">姓名：</label>
+  <input placeholder="{{userInfo.nickName}}" auto-focus />
+</view>
+
+<view class="displayinfo">
+  <label class="name">性别：</label>
+  <input placeholder="{{userGender}}" auto-focus />
+</view>
+
+<view class="displayinfo">
+  <label class="name">地址：</label>
+  <input placeholder="请填写地址" auto-focus />
+</view>

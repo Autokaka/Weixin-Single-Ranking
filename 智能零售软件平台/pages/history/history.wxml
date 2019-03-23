@@ -1,0 +1,7 @@
+<!--pages/history/history.wxml-->
+<view>
+  这里是历史纪录界面，这一行可以删除
+  <view>
+    <!--edit behind this line-->
+  </view>
+</view>

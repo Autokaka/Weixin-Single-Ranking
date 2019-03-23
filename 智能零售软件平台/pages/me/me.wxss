@@ -1,0 +1,57 @@
+/* pages/me/me.wxss */
+.head{
+  display:flex;
+  justify-content: center;
+}
+/*头像*/
+.head_photo{
+  width: 99px;
+  height: 99px;
+  border-radius: 50%;
+}
+.line{
+  border:2px solid #cccccc;
+  opacity: 0.5;
+}
+.line_cu{
+  border:6px solid #cccccc;
+  opacity: 0.5;
+}
+/*>符号*/
+.detail{
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888888;
+}
+/*功能*/
+.text{
+  padding-top:15px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-size: 16px; 
+}
+/*昵称*/
+.name{
+  padding-top:15px;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-size: 16px;
+}
+.item{
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+}
+.img{
+  margin-top: 15px;
+  margin-left: 5px;
+  line-height: 0px;
+  width:20px;
+  height:20px;
+}
+/*button::after{
+  border: none;
+}*/

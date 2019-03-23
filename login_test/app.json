@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/modPI/modPI"
+    "pages/editProfile/editProfile"
   ],
   "window": {
     "backgroundTextStyle": "light",
