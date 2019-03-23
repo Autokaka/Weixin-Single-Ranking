@@ -1,18 +1,25 @@
 .displayinfo {
   display:flex;
+  flex-direction: row;
+  margin: 20rpx;
 }
 
-.portrait {
+.head{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+.head_photo{
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
   margin: 20rpx;
+  margin-top: 50rpx;
   border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /*模态框*/
@@ -67,4 +74,13 @@
   margin-right: 8rpx;
   width: 46rpx;
   height: 46rpx;
+}
+
+.line{
+  border:2px solid #cccccc;
+  opacity: 0.5;
+}
+
+button{
+  margin: 20rpx ;
 }

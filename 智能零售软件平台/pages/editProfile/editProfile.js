@@ -2,15 +2,20 @@
 const app = getApp()
 
 Page({
+  /**
+   * 初始化数据
+   */
   data: {
-    hideModal: true, //模态框的状态  true-隐藏  false-显示
-    animationData: {},
-    avatarUrl:null,
-    sex: null,
-    nickName: null,
-    adress: null
+    hideModal: true,  //模态框的状态  true-隐藏  false-显示
+    animationData: {},//
+    sex: null,        //性别
+    nickName: null,   //昵称
+    adress: null,     //家庭住址
+    avatarUrl: null   //头像地址
   },
-  
+  /**
+   * 显示选项
+   */
   showOptions: function () {
     var that = this;
     that.setData({
@@ -25,8 +30,9 @@ Page({
       that.fadeIn();//调用显示动画
     }, 200)
   },
-
-  // 隐藏遮罩层
+  /**
+   * 隐藏遮罩层
+   */
   hideOptions: function () {
     var that = this;
     var animation = wx.createAnimation({
@@ -42,7 +48,9 @@ Page({
     }, 720)//先执行下滑动画，再隐藏模块
   },
 
-  //动画集
+  /**
+   * 动画集
+   */
   fadeIn: function () {
     this.animation.translateY(0).step()
     this.setData({
@@ -62,31 +70,14 @@ Page({
    */
   onLoad: function () {
     if (app.globalData.hasUserInfo==false) {
-      //弹窗提示登录
-      wx.showModal({
-        title: '提示',
-        content: '请先登录',
-        success: function (res) {
-          if (res.confirm) {//这里是点击了确定以后
-            console.log('用户点击确定')
-            wx.navigateBack({
-              delta: 1
-            })
-          } else {//这里是点击了取消以后
-            console.log('用户点击取消')
-            wx.navigateBack({
-              delta: 1
-            })
-          }
-        }
-      })
+      console.log("用户未登录!!");
     }else{
       //设置属性
       this.setData({
         nickName: app.globalData.userInfo.nickName,
         avatarUrl: app.globalData.userInfo.avatarUrl
       })
-      
+      //设置性别
       if (app.globalData.userInfo.gender == 0){
         this.setData({sex:"null"});
       } else if (app.globalData.userInfo.gender == 1) {
@@ -96,10 +87,4 @@ Page({
       }
     }
   }
-
-
-
-
-
-
 })

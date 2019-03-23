@@ -1,22 +1,27 @@
 <!--pages/modPI/modPI.wxml-->
-<view class="portrait">
-  <image bindtap="showOptions" class="userinfo-avatar" src="{{avatarUrl}}" mode="cover"></image>
+<view class="head">
+  <image bindtap="showOptions" class="head_photo" src="{{avatarUrl}}" mode="cover"></image>
 </view>
 
-<view class="displayinfo">
-  <label class="name">姓名：</label>
-  <input placeholder="{{nickName}}" auto-focus />
-</view>
+<view class='line'></view>
+<form bindsubmit="formSubmit">
+  <view class="displayinfo">
+    <label class="name">姓名：</label>
+    <input name="nickName" placeholder="{{nickName}}" />
+  </view>
+  <view class="displayinfo">
+    <label class="name">性别：</label>
+    <input name="sex" placeholder="{{sex}}" />
+  </view>
+  <view class="displayinfo">
+   <label class="name">地址：</label>
+   <input name="adress" placeholder="请填写地址" auto-focus />
+  </view>
+  <view>
+    <button formType="submit">提交</button>
+  </view>
+</form>
 
-<view class="displayinfo">
-  <label class="name">性别：</label>
-  <input placeholder="{{sex}}" auto-focus />
-</view>
-
-<view class="displayinfo">
-  <label class="name">地址：</label>
-  <input placeholder="请填写地址" auto-focus />
-</view>
 
 <view class="modals modals-bottom-dialog" hidden="{{hideModal}}">
   <view class="modals-cancel" bindtap="hideOptions"></view>

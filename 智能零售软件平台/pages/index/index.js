@@ -6,16 +6,15 @@ const app = getApp()
 
 Page({
   data: {
-    qrtext: ''
-  },
-  //输入框内容改变时触发
-  bindKeyInput: function (e) {
-    this.setData({
-      qrtext: e.detail.value
-    })
+    qrtext: app.globalData.openid
   },
   //单击生成二维码触发
   createQRcode: function () {
+
+    //!!!!!!!!!!!测试性赋值，拥有有效域名后删去此行!!!!!!!!!!
+    this.setData({qrtext: "hi~"})
+
+    console.log("qrtext: " + this.data.qrtext)
     this.QR.clear();
     this.QR.makeCode(this.data.qrtext);
   },
@@ -36,7 +35,6 @@ Page({
     });
     //将一个局部变量共享
     this.QR = qrcode;
-
-
+    this.createQRcode();
   }
 })

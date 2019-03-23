@@ -1,11 +1,5 @@
-
 <view class="box">
-  <canvas canvas-id='qrcode' style='margin:auto;width:660rpx; height:660rpx; background:#AAA;'>
-    
+  <view class="instruction">购物码</view>
+  <canvas canvas-id='qrcode' style='margin:auto;width:660rpx; height:660rpx; background:#f2f2f2;'> 
   </canvas>
-  <view>
-  
-    <input bindinput="bindKeyInput" class='url-input' type='text' confirm-type="done" placeholder='内容：'></input>
-    <button bindtap='createQRcode' type='primary' class='create-qrcode-btn'>生成二维码</button>
-  </view>
 </view>

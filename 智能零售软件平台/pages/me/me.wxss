@@ -6,17 +6,22 @@
 }
 /*头像*/
 .head_photo{
-  width: 128rpx;
-  height: 128rpx;
+  overflow:hidden;
+  display: block;
+  width: 160rpx;
+  height: 160rpx;
   margin: 20rpx;
+  margin-top: 50rpx;
   border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 .head_name {
   color: #aaa;
+  margin-bottom: 20rpx;
 }
 .head_btn {
   width: 50%;
-  margin-top: 40rpx;
   margin-bottom: 40rpx;
   background-color:rgb(0, 214, 107);
   color:rgb(255, 255, 255);
