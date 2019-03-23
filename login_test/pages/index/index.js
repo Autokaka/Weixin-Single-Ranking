@@ -4,7 +4,6 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},//未登录时初始化userInfo为空，并标记userInfo为空
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')//判断控件能否使用
@@ -12,7 +11,7 @@ Page({
   //事件处理函数
   bindViewTap: function() {//点击圆形按钮登录以后，跳转到log页，查看启动日志
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../modPI/modPI'
     })
   },
   onLoad: function () {
@@ -50,5 +49,6 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    console.log(app.globalData.userInfo)
   }
 })
