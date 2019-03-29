@@ -3,11 +3,13 @@
   <!--头像-->
   <view class="head">
     <open-data class="head_photo" type="userAvatarUrl"></open-data>
-    <open-data class="head_name" type="userNickName"></open-data>
-      <button class="head_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+    <button class="head_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
         <image class="head_btn_img" src='../../images/icon/wechat.png'></image>
         <view class='head_btn_text'>微信授权登录</view>
-      </button>
+    </button>
+    <block wx:else>
+      <open-data class="head_name" type="userNickName"></open-data>
+    </block>
   </view>
 
   <!--中部按钮-->

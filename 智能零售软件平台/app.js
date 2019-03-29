@@ -5,26 +5,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        //换取openid
-        wx.request({
-          url: 'https://www.dogshitpiestudio.cn/sns/jscode2session?appid=APPID&secret=SECRET&js_code=' + res.code + '&grant_type=authorization_code',
-          data: {},
-          header: {
-            'content-type': 'application/json'
-          },
-          success: res => {
-            //返回openid
-            this.globalData.openid = res.data.openid
-            console.log("openid为：" + this.globalData.openid)
-          }
-        })
-      }
-    })
+   
     // 获取用户信息
     wx.getSetting({
       success: res => {

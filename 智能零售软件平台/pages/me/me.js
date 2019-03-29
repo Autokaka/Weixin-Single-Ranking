@@ -72,6 +72,31 @@ Page({
 
   getUserInfo: function (e) {
     console.log("登录");
+    // 登录
+    wx.login({
+      success: function (res) {
+        //获取登录code= res.code
+        if (res.code) {
+          console.log("正在获取openid...")
+          //发起网络请求,相等于jq的ajax
+          wx.request({
+            url: 'https://dogshitpiestudio.cn/wxApp/index.php', //你服务器code.php文件地址，默认GET。小程序只支持https ，
+            data: {
+              code: res.code
+            },
+            //为了自身应用安全，获取的openid和session_key不应该在网络上传输，所以不设置成功回调，可以服务器直接加密存数据库
+            success: function (v) {
+              console.log(v)
+              app.globalData.openid = v.data.openid
+              console.log("app.globalData.openid: " + app.globalData.openid)
+              console.log("openid获取成功！")
+            }
+          })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      }
+    })
     //全局变量
     app.globalData.userInfo = e.detail.userInfo;
     app.globalData.hasUserInfo = true;

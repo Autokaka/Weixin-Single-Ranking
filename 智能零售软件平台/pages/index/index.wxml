@@ -1,5 +1,5 @@
 <view class="box">
   <view class="instruction">购物码</view>
-  <canvas canvas-id='qrcode' style='margin:auto;width:660rpx; height:660rpx; background:#f2f2f2;'> 
+  <canvas bindtap="createQRcode" canvas-id='qrcode' style='margin:auto;width:660rpx; height:660rpx; background:#f2f2f2;'> 
   </canvas>
 </view>
