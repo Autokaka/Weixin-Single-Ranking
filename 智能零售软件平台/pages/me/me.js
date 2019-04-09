@@ -8,7 +8,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  
+  /**
+   * 跳转修改个人信息界面
+   */
   editProfile: function () {
     if (app.globalData.hasUserInfo == false) {
       //弹窗提示登录
@@ -29,37 +31,34 @@ Page({
       })
     }
   },
-  
+  /**
+   * 跳转历史订单页面
+   */
   history: function () {
     wx.navigateTo({
       url: '../history/history'
     })
   },
-
+  /**
+   * 页面监听
+   */
   onLoad: function () {
     if (app.globalData.hasUserInfo) {
-      app.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
+      app.globalData.userInfo = res.userInfo
+      app.globalData.hasUserInfo = true
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
-        app.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+        app.globalData.userInfo = res.userInfo
+        app.globalData.hasUserInfo = true
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
-          app.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
+          app.globalData.hasUserInfo = true
         }
       })
     }

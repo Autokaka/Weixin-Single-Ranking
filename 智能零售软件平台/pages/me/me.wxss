@@ -16,10 +16,12 @@
   border: 2px solid #fff;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
+
 .head_name {
   color: #aaa;
   margin-bottom: 20rpx;
 }
+
 .head_btn {
   width: 50%;
   margin-bottom: 20rpx;
@@ -31,18 +33,22 @@
   align-items: center;
   justify-content: center;
 }
+
 .head_btn_img {
   margin-right: 8rpx;
   width: 46rpx;
   height: 46rpx;
 }
+
 .head_btn_text {
   font-size: 35rpx;
 }
+
 .line{
   border:2px solid #cccccc;
   opacity: 0.5;
 }
+
 .line_cu{
   border:6px solid #cccccc;
   opacity: 0.5;

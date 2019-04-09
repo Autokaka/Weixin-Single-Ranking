@@ -1,12 +1,14 @@
 <!--pages/me/me.wxml-->
 <view>
-  <!--头像-->
+  <!--上部-->
   <view class="head">
+    <!--头像-->
     <open-data class="head_photo" type="userAvatarUrl"></open-data>
-    <button class="head_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      <button class="head_btn" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
         <image class="head_btn_img" src='../../images/icon/wechat.png'></image>
         <view class='head_btn_text'>微信授权登录</view>
-    </button>
+      </button>
+    <!--昵称-->  
     <block wx:else>
       <open-data class="head_name" type="userNickName"></open-data>
     </block>

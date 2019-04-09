@@ -1,22 +1,24 @@
 <!--pages/shopcart/shopcart.wxml-->
 <view class='container2'>
-<!--class='container'-->
+  <view class='line'></view>
   <!--商品类列表-->
   <view class='section section-good'>
     <checkbox-group bindchange="checkboxChange">
       <view class='good' wx:for='{{goodList}}' wx:for-item="good" wx:key="good.name">
+      <!--复选框-->
         <label class="checkbox">
-          <checkbox value="{{good.isbn}}" checked="{{good.checked}}" hidden='hidden' />
+          <checkbox value="{{good.articleNum}}" checked="{{good.checked}}" hidden='hidden' />
           <icon type="circle" size="23" wx:if="{{!good.checked}}"></icon>
           <icon type="success" size="23" wx:if="{{good.checked}}"></icon>
         </label>
-        <image class='cover' src='{{good.cover}}'></image>
+      <!--图片-->
+        <image class='cover' src='{{good.photo}}'></image>
+      <!--内容-->
         <view class='content'>
           <view class='text name'>{{good.name}}</view>
-          <view class='text author'>{{good.author}}</view>
-          <view class='text desc'>{{good.desc}}</view>
           <view class='text price'>¥{{good.price}}</view>
         </view>
+      <!--数量-->
         <view class='stepper'>
           <view class='subtract {{good.count == 1 ? "disabled": ""}}' data-index='{{index}}' catchtap='subtracttap'>-</view>
           <input class='count' type='number' value='{{good.count}}'></input>
@@ -27,6 +29,7 @@
   </view>
   <!--底部结算-->
   <view class='section-bottom'>
+  <!--全选框-->
     <checkbox-group bindchange="selectalltap">
       <label class='checkbox-allcheck'>
         <checkbox value="{{!checkAll}}" checked="{{checkAll}}" hidden='hidden' />
@@ -35,7 +38,7 @@
         <text class='check-all-text'>全选</text>
       </label>
     </checkbox-group>
-
+  <!--信息-->
     <view class="total">
       <view class='totalCount'>已选择
         <text>{{totalCount}}</text>件商品
@@ -44,7 +47,9 @@
         <text>¥{{totalPrice}}</text>
       </view>
     </view>
-
-    <view class='btn {{totalCount > 0 ? "btn-primary" : "btn-default"}}'>去结算</view>
+  <!--结算-->
+    <view >
+      <button bindtap='test' class='btn {{totalCount > 0 ? "btn-primary" : "btn-default"}}' >结算</button>
+    </view>
   </view>
 </view>

@@ -4,63 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'goodList': [
-      {
-        'name': '孤独是生命的礼物',
-        'author': '余光中，林清玄，白先勇 等 著',
-        'isbn': '9787535482051',
-        'cover': '/images/cover_1.jpg',
-        'desc': '缅怀乡愁诗人余光中。余光中、林清玄、白先勇联手巨献，重温经典，送别先生。总有一天，你会明白，孤独才是生命的常态。一部直击现代人孤独的精神献礼。中国散文协会推荐！',
-        'press': '长江文艺出版社',
-        'price': 25.9,
-        'count': 1,
-        'checked': false
-      },
-      {
-        'name': '偷影子的人',
-        'author': '[法] 马克·李维 著；段韵灵 译',
-        'isbn': '9787540455958',
-        'cover': '/images/cover_2.jpg',
-        'desc': '数百万中文读者口口相传外国文学畅销经典',
-        'press': ' 湖南文艺出版社',
-        'price': 20.5,
-        'count': 1,
-        'checked': false
-      },
-      {
-        'name': '无声告白',
-        'author': '[美] 伍绮诗 著；孙璐 译',
-        'isbn': '9787539982830',
-        'cover': '/images/cover_3.jpg',
-        'desc': '我们终此一生，就是要摆脱他人的期待，找到真正的自己。',
-        'press': ' 江苏凤凰文艺出版社',
-        'price': 24.1,
-        'count': 1,
-        'checked': false
-      },
-      {
-        'name': '摆渡人',
-        'author': '[英] 克莱儿·麦克福尔 著；付强 译',
-        'isbn': '9787550013247',
-        'cover': '/images/cover_4.jpg',
-        'desc': '或许，命运就是一条孤独的河流，我们都会遇见灵魂的摆渡人。',
-        'press': ' 百花洲文艺出版社',
-        'price': 17.2,
-        'count': 1,
-        'checked': false
-      },
-      {
-        'name': '追风筝的人',
-        'author': '[美] 卡勒德·胡赛尼 著；李继宏 译',
-        'isbn': '9787208061644',
-        'cover': '/images/cover_5.jpg',
-        'desc': '快乐大本营高圆圆感动推荐，奥巴马送给女儿的新年礼物。为你，千千万万遍！',
-        'press': '上海人民出版社',
-        'price': 17.7,
-        'count': 1,
-        'checked': false
-      }
-    ],
+    'goodList' : {},
     'checkAll': false,
     'totalCount': 0,
     'totalPrice': 0
@@ -70,7 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.queryDB();
   },
 
   /**
@@ -84,7 +28,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -105,7 +48,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.queryDB();
+    wx.stopPullDownRefresh;
   },
 
   /**
@@ -184,7 +128,7 @@ Page({
     for (var i = 0; i < checkboxItems.length; ++i) {
       checkboxItems[i].checked = false;
       for (var j = 0; j < values.length; ++j) {
-        if (checkboxItems[i].isbn == values[j]) {
+        if (checkboxItems[i].articleNum == values[j]) {
           checkboxItems[i].checked = true;
           break;
         }
@@ -225,7 +169,36 @@ Page({
       'goodList': goodList
     });
     this.calculateTotal();
+  },
+  queryDB: function(){
+    var that = this;
+    console.log("数据库查询");
+    wx.request({
+      url: 'https://dogshitpiestudio.cn/wxApp/operateDB/queryDB.php',
+      data: {
+        usrid: 225079
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data);
+        for(var i=0; i<res.data.length; i++){
+          console.log("数据" + i);
+          res.data[i]["checked"] = false;
+          res.data[i]["count"] = 1;
+          res.data[i]["photo"] = "https://www.dogshitpiestudio.cn/wxApp/images/" + res.data[i]["photo"];
+        }
+        that.setData({
+          goodList: res.data
+        })
+      }
+    })
+    this.setData({
+      'checkAll': false,
+      'totalCount': 0,
+      'totalPrice': 0
+    })
+    this.calculateTotal();
   }
-
-
 })

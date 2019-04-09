@@ -86,5 +86,17 @@ Page({
         this.setData({ sex: "女" });
       }
     }
-  }
+  },
+  /**
+   * 表单提交
+   */
+  formSubmit: function (e) {
+    console.log('form发生了submit事件，携带数据为：', e.detail.value);
+    //let { phone, pwd, isPub, sex } = e.detail.value;
+    
+    this.setData({
+      
+    })
+  },
+
 })

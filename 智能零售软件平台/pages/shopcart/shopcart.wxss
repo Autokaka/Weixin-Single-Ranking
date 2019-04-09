@@ -8,6 +8,11 @@
   margin-top: 0rpx;
 }
 
+.line{
+  border:2px solid #cccccc;
+  opacity: 0.5;
+}
+
 .section {
   display: flex;
   flex-direction: column;
@@ -54,8 +59,8 @@
 }
 
 .cover {
-  width: 142rpx;
-  height: 214rpx;
+  width: 150rpx;
+  height: 150rpx;
   margin-left: 20rpx;
 }
 
